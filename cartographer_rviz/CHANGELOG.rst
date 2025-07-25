@@ -2,8 +2,8 @@
 Changelog for package cartographer_rviz
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1000 (2025-07-25)
+---------------------
 * Migrate to Alpine ROS 1 (`#1 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1>`_)
 * Build Abseil dependency in CI. (`#1485 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1485>`_)
 * Fix build status on front page. (`#1483 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1483>`_)

@@ -2,8 +2,8 @@
 Changelog for package cartographer_ros_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1000 (2025-07-25)
+---------------------
 * Migrate to Alpine ROS 1 (`#1 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1>`_)
 * Fix build status on front page. (`#1483 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1483>`_)
 * Simplify start_trajectory service (RFC-28) (`#1245 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1245>`_)

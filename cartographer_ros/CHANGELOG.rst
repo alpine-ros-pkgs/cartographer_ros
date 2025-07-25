@@ -6,8 +6,8 @@ Changelog for package cartographer_ros
 ----------------------
 * https://github.com/googlecartographer/cartographer_ros/compare/0.3.0...1.0.0
 
-Forthcoming
------------
+1.0.1000 (2025-07-25)
+---------------------
 * Migrate to Alpine ROS 1 (`#1 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1>`_)
 * Fix typos discovered by codespell (`#1684 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1684>`_)
 * Add option to ignore out of order sensor message (`#1737 <https://github.com/alpine-ros-pkgs/cartographer_ros/issues/1737>`_)
