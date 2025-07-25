@@ -70,10 +70,10 @@ class Node {
   const double resolution_;
 
   absl::Mutex mutex_;
-  ::ros::ServiceClient client_ GUARDED_BY(mutex_);
-  ::ros::Subscriber submap_list_subscriber_ GUARDED_BY(mutex_);
-  ::ros::Publisher occupancy_grid_publisher_ GUARDED_BY(mutex_);
-  std::map<SubmapId, SubmapSlice> submap_slices_ GUARDED_BY(mutex_);
+  ::ros::ServiceClient client_ ABSL_GUARDED_BY(mutex_);
+  ::ros::Subscriber submap_list_subscriber_ ABSL_GUARDED_BY(mutex_);
+  ::ros::Publisher occupancy_grid_publisher_ ABSL_GUARDED_BY(mutex_);
+  std::map<SubmapId, SubmapSlice> submap_slices_ ABSL_GUARDED_BY(mutex_);
   ::ros::WallTimer occupancy_grid_publisher_timer_;
   std::string last_frame_id_;
   ros::Time last_timestamp_;

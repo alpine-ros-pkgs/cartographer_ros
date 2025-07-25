@@ -22,6 +22,7 @@
 #include <thread>
 
 #include "glog/log_severity.h"
+#include "glog/logging.h"
 #include "ros/console.h"
 
 namespace cartographer_ros {
@@ -45,7 +46,8 @@ void ScopedRosLogSink::send(const ::google::LogSeverity severity,
                             const char* const message,
                             const size_t message_len) {
   const std::string message_string = ::google::LogSink::ToString(
-      severity, GetBasename(filename), line, tm_time, message, message_len);
+      severity, GetBasename(filename), line, ::google::LogMessageTime(*tm_time),
+      message, message_len);
   switch (severity) {
     case ::google::GLOG_INFO:
       ROS_INFO_STREAM(message_string);

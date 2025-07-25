@@ -95,7 +95,7 @@ class MapBuilderBridge {
   GetTrajectoryStates();
   cartographer_ros_msgs::SubmapList GetSubmapList();
   std::unordered_map<int, LocalTrajectoryData> GetLocalTrajectoryData()
-      LOCKS_EXCLUDED(mutex_);
+      ABSL_LOCKS_EXCLUDED(mutex_);
   visualization_msgs::MarkerArray GetTrajectoryNodeList();
   visualization_msgs::MarkerArray GetLandmarkPosesList();
   visualization_msgs::MarkerArray GetConstraintList();
@@ -107,13 +107,13 @@ class MapBuilderBridge {
                          const ::cartographer::common::Time time,
                          const ::cartographer::transform::Rigid3d local_pose,
                          ::cartographer::sensor::RangeData range_data_in_local)
-      LOCKS_EXCLUDED(mutex_);
+      ABSL_LOCKS_EXCLUDED(mutex_);
 
   absl::Mutex mutex_;
   const NodeOptions node_options_;
   std::unordered_map<int,
                      std::shared_ptr<const LocalTrajectoryData::LocalSlamData>>
-      local_slam_data_ GUARDED_BY(mutex_);
+      local_slam_data_ ABSL_GUARDED_BY(mutex_);
   std::unique_ptr<cartographer::mapping::MapBuilderInterface> map_builder_;
   tf2_ros::Buffer* const tf_buffer_;
 
