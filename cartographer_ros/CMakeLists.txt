@@ -56,8 +56,10 @@ find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPENDENCIES})
 include(FindPkgConfig)
 
 find_package(absl REQUIRED)
-find_package(LuaGoogle REQUIRED)
 find_package(Eigen3 REQUIRED)
+
+find_package(PkgConfig)
+pkg_check_modules(LUA REQUIRED lua5.2)
 
 find_package(urdfdom_headers REQUIRED)
 if(DEFINED urdfdom_headers_VERSION)
@@ -107,7 +109,8 @@ add_subdirectory("cartographer_ros")
 target_link_libraries(${PROJECT_NAME} PUBLIC cartographer)
 
 # Lua
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${LUA_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${LUA_INCLUDE_DIRS})
+target_link_directories(${PROJECT_NAME} PUBLIC ${LUA_LIBRARY_DIRS})
 
 # PCL
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${PCL_INCLUDE_DIRS})
@@ -154,7 +157,8 @@ if (CATKIN_ENABLE_TESTING)
     # catkin_add_gtest uses a plain (i.e. no PUBLIC/PRIVATE/INTERFACE) call to
     # target_link_libraries. That forces us to do the same.
     target_link_libraries(${TEST_NAME} ${GMOCK_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
-    target_include_directories(${TEST_NAME} SYSTEM PUBLIC ${LUA_INCLUDE_DIR})
+    target_include_directories(${TEST_NAME} SYSTEM PUBLIC ${LUA_INCLUDE_DIRS})
+    target_link_directories(${TEST_NAME} PUBLIC ${LUA_LIBRARY_DIRS})
     target_link_libraries(${TEST_NAME} ${LUA_LIBRARIES})
     target_include_directories(${TEST_NAME} SYSTEM PUBLIC ${catkin_INCLUDE_DIRS})
     target_link_libraries(${TEST_NAME} ${catkin_LIBRARIES})
